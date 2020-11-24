@@ -79,12 +79,10 @@ export default createStore({
     getters: {
         movies: state => state.movies,
         currentMovie: state => state.currentMovie,
-        lastMovieId: state => state.lastMovieId
     },
     mutations: {
         setCurrentMovie(state, id) {
-            let movies = state.movies.filter(x => x.id === id)
-            state.currentMovie = movies[0]
+            state.currentMovie = state.movies.filter(x => x.id === id)[0]
         },
         addNewMovie(state, newMovie) {
             state.movies.push(newMovie)
